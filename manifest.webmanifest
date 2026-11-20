@@ -1,0 +1,17 @@
+{
+  "name": "AVITO LEGAL OS",
+  "short_name": "Legal OS",
+  "description": "Локальная CRM для переписок Avito",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#080d1d",
+  "theme_color": "#182546",
+  "icons": [
+    {
+      "src": "assets/dashboard-orb.png",
+      "sizes": "1672x941",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}

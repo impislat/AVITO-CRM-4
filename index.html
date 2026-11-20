@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0d1321" />
+  <meta name="color-scheme" content="light dark" />
+  <meta name="description" content="AVITO LEGAL OS — локальная CRM юриста без хранения переписок" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <title>AVITO LEGAL OS — CRM</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="ambient ambient-one" aria-hidden="true"></div>
+  <div class="ambient ambient-two" aria-hidden="true"></div>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand">
+        <div class="brand-mark">AL</div>
+        <div>
+          <div class="brand-name">AVITO LEGAL OS</div>
+          <div class="brand-sub">CRM / PRACTICE</div>
+        </div>
+      </div>
+      <nav class="nav" aria-label="Основная навигация">
+        <button class="nav-item active" data-view="dashboard"><span class="nav-icon">⌂</span><span>Обзор</span></button>
+        <button class="nav-item" data-view="clients"><span class="nav-icon">◉</span><span>Клиенты</span><span class="nav-count" id="navClientCount">—</span></button>
+        <button class="nav-item" data-view="finance"><span class="nav-icon">₽</span><span>Финансы</span></button>
+        <button class="nav-item" data-view="analytics"><span class="nav-icon">↗</span><span>Аналитика</span></button>
+        <button class="nav-item" data-view="settings"><span class="nav-icon">⚙</span><span>Данные и импорт</span></button>
+      </nav>
+      <div class="sidebar-foot">
+        <div class="workspace-status"><span class="status-dot"></span><span>Локальная CRM</span></div>
+        <p>Данные хранятся в браузере</p>
+        <button class="sound-toggle" id="soundToggle" type="button" aria-pressed="false"><span class="sound-toggle-icon">◒</span><span>Звуки интерфейса</span><span class="sound-toggle-state">Выкл.</span></button>
+        <p class="privacy-note">Репозиторий с переписками держите приватным.</p>
+      </div>
+    </aside>
+
+    <main class="main-shell">
+      <header class="topbar">
+        <button class="mobile-menu" id="mobileMenu" aria-label="Открыть меню">☰</button>
+        <div class="topbar-context">
+          <span class="eyebrow" id="viewEyebrow">РАБОЧИЙ КАБИНЕТ</span>
+          <h1 id="viewTitle">Обзор</h1>
+        </div>
+        <div class="topbar-actions">
+          <label class="global-search">
+            <span>⌕</span>
+            <input id="globalSearch" type="search" placeholder="Поиск по имени, нику, теме и сообщениям" autocomplete="off" />
+            <kbd>Ctrl K</kbd>
+          </label>
+          <button class="icon-button" id="themeToggle" title="Переключить тему" aria-label="Переключить тему">◐</button>
+          <button class="button button-primary" id="quickImport">Импорт JSON</button>
+        </div>
+      </header>
+
+      <section class="content" id="appContent" aria-live="polite">
+        <div class="loading-state" id="loadingState"><div class="loader"></div><p>Загружаю CRM-базу…</p></div>
+      </section>
+    </main>
+  </div>
+
+  <input type="file" id="fileInput" accept="application/json,.json" hidden />
+  <div class="toast-region" id="toastRegion" aria-live="polite"></div>
+  <script src="app.js"></script>
+</body>
+</html>
