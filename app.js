@@ -377,9 +377,16 @@
     try { localStorage.setItem('avito-crm-data-v1', JSON.stringify(state.data)); } catch (error) { console.warn('CRM changes kept for this session; local cache is full.', error); }
     closeClientEditor();
     state.selectedId = recordId(record);
-    showToast(existingIndex >= 0 ? 'Карточка обновлена' : 'Новый клиент добавлен');
+    // После сохранения сразу показываем карточку: сбрасываем фильтры, которые могли скрыть новую запись.
+    state.query = '';
+    state.status = 'all';
+    state.payment = 'all';
+    state.category = 'all';
+    state.topic = 'all';
+    state.sort = 'recent';
     playUiSound('success');
-    render();
+    setView('clients');
+    showToast(existingIndex >= 0 ? 'Карточка обновлена' : 'Новый клиент добавлен');
   }
 
   function manualOverridePayload(record) {
