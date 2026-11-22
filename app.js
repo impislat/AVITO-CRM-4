@@ -427,7 +427,7 @@
       date: record.date || '', name: record.name || '', nick: record.nick || '', adId: record.adId || '',
       service: record.service || '', price: record.price || 0, paid: !!record.paid, status: record.status || 'wait',
       followUp: record.followUp || '', payment_status: record.payment_status || 'unknown_or_not_confirmed',
-      lifecycle_stage: record.lifecycle_stage || 'unknown', updated_manually_at: record.updated_manually_at || new Date().toISOString()
+      lifecycle_stage: record.lifecycle_stage || 'unknown', manual_status_preserved: true, updated_manually_at: record.updated_manually_at || new Date().toISOString()
     };
   }
 
@@ -478,7 +478,7 @@
     if (!state.records.length) state.records = payload.clients;
     state.records = applyManualOverrides(state.records);
     state.records.forEach((record) => {
-      if (record.is_new_archive_record || record.record_type === 'new_archive_client') {
+      if ((record.is_new_archive_record || record.record_type === 'new_archive_client') && !record.manual_status_preserved && !record.updated_manually_at) {
         record.status = ['payment_confirmed', 'agreed_or_docs'].includes(record.lifecycle_stage) ? 'done' : 'cancel';
         record.followUp = '';
       }
