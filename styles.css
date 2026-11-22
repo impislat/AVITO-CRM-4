@@ -205,6 +205,7 @@ kbd { font-size: 10px; padding: 3px 5px; border: 1px solid var(--line); border-r
 
 .settings-grid { display: grid; grid-template-columns: minmax(0,1fr) minmax(320px,.75fr); gap: 18px; }
 .import-zone { border: 1px dashed #afbdd4; border-radius: 14px; padding: 29px 22px; text-align: center; background: #fbfcff; }
+.import-zone.is-dragover { border-color: var(--blue); background: var(--blue-soft); box-shadow: 0 0 0 3px rgba(47,109,246,.12); }
 .import-zone strong { display: block; font-size: 15px; }
 .import-zone p { color: var(--muted); font-size: 12px; margin: 7px auto 16px; max-width: 480px; }
 .settings-list { display: grid; gap: 12px; }
