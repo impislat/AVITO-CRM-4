@@ -88,7 +88,7 @@
     sort: 'recent',
     selectedId: null,
     showAllMessages: false,
-    theme: localStorage.getItem('avito-crm-theme') || 'light'
+    theme: localStorage.getItem('avito-crm-theme') || 'dark'
   };
 
   const soundState = {
